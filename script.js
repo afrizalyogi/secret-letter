@@ -45,6 +45,13 @@ function showModal(from, to, message, box) {
     document.getElementById('modal').style.display = 'none'
     box.style.backgroundColor = '#FF5733'
   })
+
+  window.onclick = function (event) {
+    if (event.target === document.getElementById('modal')) {
+      document.getElementById('modal').style.display = 'none'
+      box.style.backgroundColor = '#FF5733'
+    }
+  }
 }
 
 window.onclick = function (event) {
