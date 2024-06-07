@@ -17,9 +17,9 @@ fetch(spreadsheetURL)
 
     shuffledRows.forEach((row, index) => {
       const columns = row.split(',')
-      const from = columns[1].trim()
-      const to = columns[2].trim()
-      const message = columns[3].trim()
+      const from = columns[1]?.trim() || 'Anonim'
+      const to = columns[2]?.trim() || 'Semua'
+      const message = columns[3]?.trim() || ''
 
       const box = document.createElement('div')
       box.className = 'box'
@@ -32,6 +32,9 @@ fetch(spreadsheetURL)
 
     loading.style.display = 'none'
     container.style.display = 'flex'
+  })
+  .catch((error) => {
+    console.error('Error fetching or processing data:', error)
   })
 
 function showModal(from, to, message, box) {
